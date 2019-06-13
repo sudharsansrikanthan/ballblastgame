@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DELTA GAME</title>
+    <style>
+    	* { padding: 0; margin: 0; }
+    	canvas { background: #eee; display: block; margin: 0 auto; }
+    </style>
+	<script>
+		var canvas=document.getElementById('canvas');
+var ctx=canvas.getContext('2d');
+var leftPressed=false;
+var rightPressed=false;
+var x=235;
+var x2;
+var x3;
+var y=570;
+var y2;
+var y3;
+var dx=5;
+var bu1=10;
+var bu2=-15;
+var bu3=-40;
+var bu4=-65;
+var bu5=-90;
+var bu6=-115;
+var bu7=-140;
+var bu8=-165;
+var bu9=-190;
+var bu10=-215;
+var bu11=-240;
+var bu12=-265;
+var bu13=-290;
+var bu14=-315;
+var bu15=-340;
+var bu16=-365;
+var bu17=-390;
+var bu18=-415;
+var bu19=-440;
+var bu20=-465;
+var bu21=-490;
+var bu22=-515;
+var b1x;
+var b2x;
+var b3x;
+var b4x;
+var b5x;
+var b6x;
+var b7x;
+var b8x;
+var b9x;
+var b10x;
+var b11x;
+var b12x;
+var b13x;
+var b14x;
+var b15x;
+var b16x;
+var b17x;
+var b18x;
+var b19x;
+var b20x;
+var b21x;
+var b22x;
+var temp;
+var rr=0;
+var rr2=0;
+var rdx=2;
+var rdx2=2;
+var rdy=0;
+var rdy2=0;
+var gravity=0.2;
+var score=0;
+y2=100+(Math.floor(Math.random()*100))*2;
+temp=Math.floor(Math.random()*10);
+if(temp>=50)
+rr=temp;
+else
+rr=50+temp;
+if(Math.floor(Math.random()*10)%2==0)
+x2=rr;
+else
+x2=500-rr;
+document.addEventListener('keydown', keyDownHandler, false);
+document.addEventListener('keyup', keyUpHandler, false);
+function keyDownHandler(e) {
+if(e.key=="Left"|| e.key=="ArrowLeft" || e.key=="a")
+leftPressed=true;
+if(e.key=="Right"|| e.key=="ArrowRight" || e.key=="d")
+rightPressed=true;
+}
+function keyUpHandler(e) {
+if(e.key=="Left"|| e.key=="ArrowLeft" || e.key=="a")
+leftPressed=false;
+if(e.key=="Right"|| e.key=="ArrowRight" || e.key=="d")
+rightPressed=false;
+}
+function drawRocks() {
+ctx.beginPath();
+ctx.fillStyle="brown";
+ctx.arc( x2, y2, rr, 0, Math.PI *2, true);
+ctx.fill();
+}
+function drawRocks2() {
+ctx.beginPath();
+ctx.fillStyle="brown";
+ctx.arc( x3, y3, rr2, 0, Math.PI *2, true);
+ctx.fill();
+}
+function drawCannon() {
+ctx.beginPath();
+ctx.fillStyle="black";
+if(rightPressed && x<=470)
+x=x+dx;
+if(leftPressed && x>0)
+x=x-dx;
+ctx.fillRect( x, y, 30, 30);
+}
+function drawBullets1() {
+if(bu1==10)
+b1x=x+15;
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.arc( b1x, y-bu1, 10, 0, Math.PI *2, true);
+ctx.fill();
+if(y-bu1==10)
+bu1=5;
+}
+function drawBullets2() {
+if(bu2==10)
+b2x=x+15;
+if(bu2>=10){
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.arc( b2x, y-bu2, 10, 0, Math.PI *2, true);
+ctx.fill();
+if(y-bu2==10)
+bu2=5;
+}}
+function drawBullets3() {
+if(bu3==10)
+b3x=x+15;
+if(bu3>=10){
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.arc( b3x, y-bu3, 10, 0, Math.PI *2, true);
+ctx.fill();
+if(y-bu3==10)
+bu3=5;
+}}
+function drawBullets4() {
+if(bu4==10)
+b4x=x+15;
+if(bu4>=10){
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.arc( b4x, y-bu4, 10, 0, Math.PI *2, true);
+ctx.fill();
+if(y-bu4==10)
+bu4=5;
+}}
+function drawBullets5() {
+if(bu5==10)
+b5x=x+15;
+if(bu5>=10){
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.arc( b5x, y-bu5, 10, 0, Math.PI *2, true);
+ctx.fill();
+if(y-bu5==10)
+bu5=5;
+}}
+function drawBullets6() {
+if(bu6==10)
+b6x=x+15;
+if(bu6>=10){
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.arc( b6x, y-bu6, 10, 0, Math.PI *2, true);
+ctx.fill();
+if(y-bu6==10)
+bu6=5;
+}}
+function drawBullets7() {
+if(bu7==10)
+b7x=x+15;
+if(bu7>=10){
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.arc( b7x, y-bu7, 10, 0, Math.PI *2, true);
+ctx.fill();
+if(y-bu7==10)
+bu7=5;
+}}
+function drawBullets8() {
+if(bu8==10)
+b8x=x+15;
+if(bu8>=10){
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.arc( b8x, y-bu8, 10, 0, Math.PI *2, true);
+ctx.fill();
+if(y-bu8==10)
+bu8=5;
+}}
+function drawBullets9() {
+if(bu9==10)
+b9x=x+15;
+if(bu9>=10){
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.arc( b9x, y-bu9, 10, 0, Math.PI *2, true);
+ctx.fill();
+if(y-bu9==10)
+bu9=5;
+}}
+function drawBullets10() {
+if(bu10==10)
+b10x=x+15;
+if(bu10>=10){
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.arc( b10x, y-bu10, 10, 0, Math.PI *2, true);
+ctx.fill();
+if(y-bu10==10)
+bu10=5;
+}}
+function drawBullets11() {
+if(bu11==10)
+b11x=x+15;
+if(bu11>=10){
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.arc( b11x, y-bu11, 10, 0, Math.PI *2, true);
+ctx.fill();
+if(y-bu11==10)
+bu11=5;
+}}
+function drawBullets12() {
+if(bu12==10)
+b12x=x+15;
+if(bu12>=10){
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.arc( b12x, y-bu12, 10, 0, Math.PI *2, true);
+ctx.fill();
+if(y-bu12==10)
+bu12=5;
+}}
+function drawBullets13() {
+if(bu13==10)
+b13x=x+15;
+if(bu13>=10){
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.arc( b13x, y-bu13, 10, 0, Math.PI *2, true);
+ctx.fill();
+if(y-bu13==10)
+bu13=5;
+}}
+function drawBullets14() {
+if(bu14==10)
+b14x=x+15;
+if(bu14>=10){
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.arc( b14x, y-bu14, 10, 0, Math.PI *2, true);
+ctx.fill();
+if(y-bu14==10)
+bu14=5;
+}}
+function drawBullets15() {
+if(bu15==10)
+b15x=x+15;
+if(bu15>=10){
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.arc( b15x, y-bu15, 10, 0, Math.PI *2, true);
+ctx.fill();
+if(y-bu15==10)
+bu15=5;
+}}
+function drawBullets16() {
+if(bu16==10)
+b16x=x+15;
+if(bu16>=10){
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.arc( b16x, y-bu16, 10, 0, Math.PI *2, true);
+ctx.fill();
+if(y-bu16==10)
+bu16=5;
+}}
+function drawBullets17() {
+if(bu17==10)
+b17x=x+15;
+if(bu17>=10){
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.arc( b17x, y-bu17, 10, 0, Math.PI *2, true);
+ctx.fill();
+if(y-bu17==10)
+bu17=5;
+}}
+function drawBullets18() {
+if(bu18==10)
+b18x=x+15;
+if(bu18>=10){
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.arc( b18x, y-bu18, 10, 0, Math.PI *2, true);
+ctx.fill();
+if(y-bu18==10)
+bu18=5;
+}}
+function drawBullets19() {
+if(bu19==10)
+b19x=x+15;
+if(bu19>=10){
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.arc( b19x, y-bu19, 10, 0, Math.PI *2, true);
+ctx.fill();
+if(y-bu19==10)
+bu19==5;
+}}
+function drawBullets20() {
+if(bu20==10)
+b20x=x+15;
+if(bu20>=10){
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.arc( b20x, y-bu20, 10, 0, Math.PI *2, true);
+ctx.fill();
+if(y-bu20==10)
+bu20=5;
+}}
+function drawBullets21() {
+if(bu21==10)
+b21x=x+15;
+if(bu21>=10){
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.arc( b21x, y-bu21, 10, 0, Math.PI *2, true);
+ctx.fill();
+if(y-bu21==10)
+bu21=5;
+}}
+function drawBullets22() {
+if(bu22==10)
+b22x=x+15;
+if(bu22>=10){
+ctx.beginPath();
+ctx.fillStyle="black";
+ctx.arc( b22x, y-bu22, 10, 0, Math.PI *2, true);
+ctx.fill();
+if(y-bu22==10)
+bu22=5;
+}}
+function drawScore() {
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "black";
+  ctx.fillText("Score: "+score, 8, 40);
+}
+function ballBlastGame() {
+  ctx.font="16x Arial";
+  ctx.fontStyle="black";
+  ctx.fillText("BALL BLAST", 8, 20);
+}
+function collisionDetection() {
+if(y2+rr>y+5 && ((x>x2-rr && x<x2+rr) || (x+30>x2-rr && x+30<x2+rr)))
+{alert("GAME OVER : YOUR SCORE IS "+score);
+document.location.reload();}
+if(y3+rr2>y+5 && ((x>x3-rr2 && x<x3+rr2) || (x+30>x3-rr2 && x+30<x3+rr2)))
+{alert("GAME OVER : YOUR SCORE IS "+score);
+document.location.reload();}
+}
+function draw() {
+ctx.clearRect( 0, 0, canvas.width, canvas.height);
+drawCannon();
+drawBullets1();
+drawBullets2();
+drawBullets3();
+drawBullets4();
+drawBullets5();
+drawBullets6();
+drawBullets7();
+drawBullets8();
+drawBullets9();
+drawBullets10();
+drawBullets11();
+drawBullets12();
+drawBullets13();
+drawBullets14();
+drawBullets15();
+drawBullets16();
+drawBullets17();
+drawBullets18();
+drawBullets19();
+drawBullets20();
+drawBullets21();
+drawBullets22();
+drawScore();
+ballBlastGame();
+collisionDetection();
+if(rr<10)
+{
+y2=100+(Math.floor(Math.random()*100))*2;
+temp=Math.floor(Math.random()*10);
+if(temp>=50)
+rr=temp;
+else
+rr=50+temp;
+if(Math.floor(Math.random()*10)%2==0)
+x2=rr;
+else
+x2=500-rr;
+rdy=0;
+drawRocks();
+}
+if(score>=100 && rr2<10)
+{
+y3=100+(Math.floor(Math.random()*100))*2;
+temp=Math.floor(Math.random()*10);
+if(temp>=50)
+rr2=temp;
+else
+rr2=50+temp;
+if(Math.floor(Math.random()*10)%2==0)
+x3=rr2;
+else
+x3=500-rr2;
+rdy2=0;
+drawRocks2();
+}
+if(rr>=10)
+drawRocks();
+if(score>=100 && rr2>=10)
+drawRocks2();
+bu1=bu1+5;
+bu2=bu2+5;
+bu3=bu3+5;
+bu4=bu4+5;
+bu5=bu5+5;
+bu6=bu6+5;
+bu7=bu7+5;
+bu8=bu8+5;
+bu9=bu9+5;
+bu10=bu10+5;
+bu11=bu11+5;
+bu12=bu12+5;
+bu13=bu13+5;
+bu14=bu14+5;
+bu15=bu15+5;
+bu16=bu16+5;
+bu17=bu17+5;
+bu18=bu18+5;
+bu19=bu19+5;
+bu20=bu20+5;
+bu21=bu21+5;
+bu22=bu22+5;
+if(y2+rr>=canvas.height)
+{rdy=-rdy;
+rdy=rdy*0.99}
+if(x2+rr>canvas.width || x2-rr<0)
+rdx=-rdx;
+x2=x2+rdx;
+y2=y2+rdy;
+rdy=rdy+gravity;
+if(y3+rr2>=canvas.height)
+{rdy2=-rdy2;
+rdy2=rdy2*0.99}
+if(x3+rr2>canvas.width || x3-rr2<0)
+rdx2=-rdx2;
+x3=x3+rdx2;
+y3=y3+rdy2;
+rdy2=rdy2+gravity;
+if(b1x>=x2-rr && b1x<=x2+rr && y-bu1>=y2-rr && y-bu1<=y2+rr ){
+rr=rr-1;
+score=score+1;
+b1x=canvas.width*2;}
+if(b2x>=x2-rr && b2x<=x2+rr && y-bu2>=y2-rr && y-bu2<=y2+rr ){
+rr=rr-1;
+score=score+1;
+b2x=canvas.width*2;}
+if(b3x>=x2-rr && b3x<=x2+rr && y-bu3>=y2-rr && y-bu3<=y2+rr ){
+rr=rr-1;
+score=score+1;
+b3x=canvas.width*2;}
+if(b4x>=x2-rr && b4x<=x2+rr && y-bu4>=y2-rr && y-bu4<=y2+rr ){
+rr=rr-1;
+score=score+1;
+b4x=canvas.width*2;}
+if(b5x>=x2-rr && b5x<=x2+rr && y-bu5>=y2-rr && y-bu5<=y2+rr ){
+rr=rr-1;
+score=score+1;
+b5x=canvas.width*2;}
+if(b6x>=x2-rr && b6x<=x2+rr && y-bu6>=y2-rr && y-bu6<=y2+rr ){
+rr=rr-1;
+score=score+1;
+b6x=canvas.width*2;}
+if(b7x>=x2-rr && b7x<=x2+rr && y-bu7>=y2-rr && y-bu7<=y2+rr ){
+rr=rr-1;
+score=score+1;
+b7x=canvas.width*2;}
+if(b8x>=x2-rr && b8x<=x2+rr && y-bu8>=y2-rr && y-bu8<=y2+rr ){
+rr=rr-1;
+score=score+1;
+b8x=canvas.width*2;}
+if(b9x>=x2-rr && b9x<=x2+rr && y-bu9>=y2-rr && y-bu9<=y2+rr ){
+rr=rr-1;
+score=score+1;
+b9x=canvas.width*2;}
+if(b10x>=x2-rr && b10x<=x2+rr && y-bu10>=y2-rr && y-bu10<=y2+rr ){
+rr=rr-1;
+score=score+1;
+b10x=canvas.width*2;}
+if(b11x>=x2-rr && b11x<=x2+rr && y-bu11>=y2-rr && y-bu11<=y2+rr ){
+rr=rr-1;
+score=score+1;
+b11x=canvas.width*2;}
+if(b12x>=x2-rr && b12x<=x2+rr && y-bu12>=y2-rr && y-bu12<=y2+rr ){
+rr=rr-1;
+score=score+1;
+b12x=canvas.width*2;}
+if(b13x>=x2-rr && b13x<=x2+rr && y-bu13>=y2-rr && y-bu13<=y2+rr ){
+rr=rr-1;
+score=score+1;
+b13x=canvas.width*2;}
+if(b14x>=x2-rr && b14x<=x2+rr && y-bu14>=y2-rr && y-bu14<=y2+rr ){
+rr=rr-1;
+score=score+1;
+b14x=canvas.width*2;}
+if(b15x>=x2-rr && b15x<=x2+rr && y-bu15>=y2-rr && y-bu15<=y2+rr ){
+rr=rr-1;
+score=score+1;
+b15x=canvas.width*2;}
+if(b16x>=x2-rr && b16x<=x2+rr && y-bu16>=y2-rr && y-bu16<=y2+rr ){
+rr=rr-1;
+score=score+1;
+b16x=canvas.width*2;}
+if(b17x>=x2-rr && b17x<=x2+rr && y-bu17>=y2-rr && y-bu17<=y2+rr ){
+rr=rr-1;
+score=score+1;
+b17x=canvas.width*2;}
+if(b18x>=x2-rr && b18x<=x2+rr && y-bu18>=y2-rr && y-bu18<=y2+rr ){
+rr=rr-1;
+score=score+1;
+b18x=canvas.width*2;}
+if(b19x>=x2-rr && b19x<=x2+rr && y-bu19>=y2-rr && y-bu19<=y2+rr ){
+rr=rr-1;
+score=score+1;
+b19x=canvas.width*2;}
+if(b20x>=x2-rr && b20x<=x2+rr && y-bu20>=y2-rr && y-bu20<=y2+rr ){
+rr=rr-1;
+score=score+1;
+b20x=canvas.width*2;}
+if(b21x>=x2-rr && b21x<=x2+rr && y-bu21>=y2-rr && y-bu21<=y2+rr ){
+rr=rr-1;
+score=score+1;
+b21x=canvas.width*2;}
+if(b22x>=x2-rr && b22x<=x2+rr && y-bu22>=y2-rr && y-bu22<=y2+rr ){
+rr=rr-1;
+score=score+1;
+b22x=canvas.width*2;}
+if(b1x>=x3-rr2 && b1x<=x3+rr2 && y-bu1>=y3-rr2 && y-bu1<=y3+rr2 ){
+rr2=rr2-1;
+score=score+1;
+b1x=canvas.width*2;}
+if(b2x>=x3-rr2 && b2x<=x3+rr2 && y-bu2>=y3-rr2 && y-bu2<=y3+rr2 ){
+rr2=rr2-1;
+score=score+1;
+b2x=canvas.width*2;}
+if(b3x>=x3-rr2 && b3x<=x3+rr2 && y-bu3>=y3-rr2 && y-bu3<=y3+rr2 ){
+rr2=rr2-1;
+score=score+1;
+b3x=canvas.width*2;}
+if(b4x>=x3-rr2 && b4x<=x3+rr2 && y-bu4>=y3-rr2 && y-bu4<=y3+rr2 ){
+rr2=rr2-1;
+score=score+1;
+b4x=canvas.width*2;}
+if(b5x>=x3-rr2 && b5x<=x3+rr2 && y-bu5>=y3-rr2 && y-bu5<=y3+rr2 ){
+rr2=rr2-1;
+score=score+1;
+b5x=canvas.width*2;}
+if(b6x>=x3-rr2 && b6x<=x3+rr2 && y-bu6>=y3-rr2 && y-bu6<=y3+rr2 ){
+rr2=rr2-1;
+score=score+1;
+b6x=canvas.width*2;}
+if(b7x>=x3-rr2 && b7x<=x3+rr2 && y-bu7>=y3-rr2 && y-bu7<=y3+rr2 ){
+rr2=rr2-1;
+score=score+1;
+b7x=canvas.width*2;}
+if(b8x>=x3-rr2 && b8x<=x3+rr2 && y-bu8>=y3-rr2 && y-bu8<=y3+rr2 ){
+rr2=rr2-1;
+score=score+1;
+b8x=canvas.width*2;}
+if(b9x>=x3-rr2 && b9x<=x3+rr2 && y-bu9>=y3-rr2 && y-bu9<=y3+rr2 ){
+rr2=rr2-1;
+score=score+1;
+b9x=canvas.width*2;}
+if(b10x>=x3-rr2 && b10x<=x3+rr2 && y-bu10>=y3-rr2 && y-bu10<=y3+rr2 ){
+rr2=rr2-1;
+score=score+1;
+b10x=canvas.width*2;}
+if(b11x>=x3-rr2 && b11x<=x3+rr2 && y-bu11>=y3-rr2 && y-bu11<=y3+rr2 ){
+rr2=rr2-1;
+score=score+1;
+b11x=canvas.width*2;}
+if(b12x>=x3-rr2 && b12x<=x3+rr2 && y-bu12>=y3-rr2 && y-bu12<=y3+rr2 ){
+rr2=rr2-1;
+score=score+1;
+b12x=canvas.width*2;}
+if(b13x>=x3-rr2 && b13x<=x3+rr2 && y-bu13>=y3-rr2 && y-bu13<=y3+rr2 ){
+rr2=rr2-1;
+score=score+1;
+b13x=canvas.width*2;}
+if(b14x>=x3-rr2 && b14x<=x3+rr2 && y-bu14>=y3-rr2 && y-bu14<=y3+rr2 ){
+rr2=rr2-1;
+score=score+1;
+b14x=canvas.width*2;}
+if(b15x>=x3-rr2 && b15x<=x3+rr2 && y-bu15>=y3-rr2 && y-bu15<=y3+rr2 ){
+rr2=rr2-1;
+score=score+1;
+b15x=canvas.width*2;}
+if(b16x>=x3-rr2 && b16x<=x3+rr2 && y-bu16>=y3-rr2 && y-bu16<=y3+rr2 ){
+rr2=rr2-1;
+score=score+1;
+b16x=canvas.width*2;}
+if(b17x>=x3-rr2 && b17x<=x3+rr2 && y-bu17>=y3-rr2 && y-bu17<=y3+rr2 ){
+rr2=rr2-1;
+score=score+1;
+b17x=canvas.width*2;}
+if(b18x>=x3-rr2 && b18x<=x3+rr2 && y-bu18>=y3-rr2 && y-bu18<=y3+rr2 ){
+rr2=rr2-1;
+score=score+1;
+b18x=canvas.width*2;}
+if(b19x>=x3-rr2 && b19x<=x3+rr2 && y-bu19>=y3-rr2 && y-bu19<=y3+rr2 ){
+rr2=rr2-1;
+score=score+1;
+b19x=canvas.width*2;}
+if(b20x>=x3-rr2 && b20x<=x3+rr2 && y-bu20>=y3-rr2 && y-bu20<=y3+rr2 ){
+rr2=rr2-1;
+score=score+1;
+b20x=canvas.width*2;}
+if(b21x>=x3-rr2 && b21x<=x3+rr2 && y-bu21>=y3-rr2 && y-bu21<=y3+rr2 ){
+rr2=rr2-1;
+score=score+1;
+b21x=canvas.width*2;}
+if(b22x>=x3-rr2 && b22x<=x3+rr2 && y-bu22>=y3-rr2 && y-bu22<=y3+rr2 ){
+rr2=rr2-1;
+score=score+1;
+b22x=canvas.width*2;}
+requestAnimationFrame(draw);
+}
+</script>
+</head>
+<body onload="draw()">
+
+<canvas id="canvas" width="500" height="600"></canvas>
+
+
+
+</body>
+</html>
